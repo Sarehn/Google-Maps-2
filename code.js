@@ -1,12 +1,5 @@
 
-var map, lat, lng;
-
-function displayCoordinates(pnt) {
-      lat = pnt.lat();
-      lat = lat.toFixed(4);
-      lng = pnt.lng();
-      lng = lng.toFixed(4);
-}
+var map;
 
 window.onload = function() {
 
@@ -20,7 +13,7 @@ window.onload = function() {
   var map = new google.maps.Map(document.getElementById('map'),opt);
   var map2 = new google.maps.Map(document.getElementById('map2'),opt);
 
-  google.maps.event.addListener(map, 'mousemove', function (event) {
-      displayCoordinates(event.latLng);
+  google.maps.event.addListener(map, 'center_changed', function () {
+      map2.setCenter(map.getCenter());
   });
 }
