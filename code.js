@@ -16,4 +16,8 @@ window.onload = function() {
   google.maps.event.addListener(map, 'center_changed', function () {
       map2.setCenter(map.getCenter());
   });
+
+  google.maps.event.addListener(map, 'zoom_changed', function () {
+      map2.setZoom(map.getZoom());
+  });
 }
